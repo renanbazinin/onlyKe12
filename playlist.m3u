@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="Keshet 12 IL" tvg-name="Keshet 12 IL" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12
+https://mako-streaming.akamaized.net/stream/hls/live/2033791/k12dvr/index.m3u8?b-in-range=100-2700&_uid=f0b59818-4e30-4f0c-a6da-1c28b5f0b13e&playerSessionid=6931bd5a-f1d6-4a73-ad0b-aa62aa3c4413&hdnea=st%3D1685282070%7Eexp%3D1685282970%7Eacl%3D%2F*%7Ehmac%3D1acfc389b4eda7d3ed1ff970a9c79522c8214016dae58d91bc599ec3734c50b2
