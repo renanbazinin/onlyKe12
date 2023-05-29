@@ -1,4 +1,5 @@
 import time
+import random
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -6,6 +7,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+def random_sleep():
+    sleep_time = random.randint(180, 300)  # Random time between 3 and 5 minutes in seconds
+    time.sleep(sleep_time)
+    
 # Set up Chrome options to run headless (without opening a browser window)
 chrome_options = Options()
 chrome_options.add_argument("--headless")
@@ -50,4 +56,4 @@ while True:
     driver.quit()
 
     # Delay for 3 minutes before the next execution
-    time.sleep(180)
+    random_sleep()
