@@ -54,6 +54,9 @@ while True:
 
     # Close the browser
     driver.quit()
+    print("filtered_request\n")
+    print(filtered_request)
+    print("ok now to sleep")
 
     # Delay for 3 minutes before the next execution
     random_sleep()
