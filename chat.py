@@ -1,5 +1,5 @@
 import time
-import random
+import subprocess
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -7,11 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
-def random_sleep():
-    sleep_time = random.randint(180, 300)  # Random time between 3 and 5 minutes in seconds
-    time.sleep(sleep_time)
-    
 # Set up Chrome options to run headless (without opening a browser window)
 chrome_options = Options()
 chrome_options.add_argument("--headless")
@@ -19,6 +14,7 @@ chrome_options.add_argument("--headless")
 # Path to your ChromeDriver executable
 chromedriver_path = '/path/to/chromedriver'
 
+lastResult ="empty"
 while True:
     # Set up the ChromeDriver service
     service = Service(chromedriver_path)
@@ -42,21 +38,25 @@ while True:
     # Find the first network request that matches the URL prefix
     target_url = 'https://mako-streaming.akamaized.net/stream/hls/live/2033791/k12dvr/index.m3u8?b-in-range=100-2700'
     filtered_request = next((entry['name'] for entry in network_entries if entry['name'].startswith(target_url)), None)
-
+    if(lastResult == filtered_request):
+        print("no change")
     if filtered_request:
         # Create the text file and write the content
-        with open('ke12.m3u', 'w') as file:
+        with open('playlist.m3u', 'w') as file:
             file.write('#EXTM3U\n')
             file.write('#EXTINF:-1 tvg-id="Keshet 12 IL" tvg-name="Keshet 12 IL" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12\n')
             file.write(filtered_request)
+
+        # Add, commit, and push changes using Git
+        subprocess.run(['git', 'add', 'playlist.m3u'])
+        subprocess.run(['git', 'commit', '-m', 'Updated playlist'])
+        subprocess.run(['git', 'push'])
+
     else:
         print("No matching network request found.")
 
     # Close the browser
     driver.quit()
-    print("filtered_request\n")
-    print(filtered_request)
-    print("ok now to sleep")
 
     # Delay for 3 minutes before the next execution
-    random_sleep()
+    time.sleep(222)
