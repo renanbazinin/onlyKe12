@@ -1,3 +1,4 @@
+import random
 import time
 import subprocess
 from selenium import webdriver
@@ -7,6 +8,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+def random_sleep():
+    sleep_time = random.randint(180, 300)  # Random time between 3 and 5 minutes in seconds
+    time.sleep(sleep_time)
+
+               
 # Set up Chrome options to run headless (without opening a browser window)
 chrome_options = Options()
 chrome_options.add_argument("--headless")
@@ -44,7 +51,7 @@ while True:
         # Create the text file and write the content
         with open('playlist.m3u', 'w') as file:
             file.write('#EXTM3U\n')
-            file.write('#EXTINF:-1 tvg-id="Keshet 12 IL" tvg-name="Keshet 12 IL" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12\n')
+            file.write('#EXTINF:-1 tvg-id="12-kanal-il"  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12\n')
             file.write(filtered_request)
 
         # Add, commit, and push changes using Git
@@ -59,4 +66,4 @@ while True:
     driver.quit()
 
     # Delay for 3 minutes before the next execution
-    time.sleep(222)
+    random_sleep()
