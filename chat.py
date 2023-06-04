@@ -21,7 +21,7 @@ chrome_options.add_argument("--headless")
 # Path to your ChromeDriver executable
 chromedriver_path = '/path/to/chromedriver'
 
-lastResult ="empty"
+lastResult ="empty1"
 while True:
     # Set up the ChromeDriver service
     service = Service(chromedriver_path)
