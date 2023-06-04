@@ -21,7 +21,7 @@ chrome_options.add_argument("--headless")
 # Path to your ChromeDriver executable
 chromedriver_path = '/path/to/chromedriver'
 
-lastResult ="empty1"
+lastResult ="empty"
 while True:
     # Set up the ChromeDriver service
     service = Service(chromedriver_path)
@@ -49,15 +49,15 @@ while True:
         print("no change")
     if filtered_request:
         # Create the text file and write the content
-        with open('playlist.m3u', 'w') as file:
+        with open('playlist.m3u8', 'w') as file:
             file.write('#EXTM3U\n')
             file.write('#EXTINF:-1 tvg-id="12-kanal-il"  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12\n')
             file.write(filtered_request)
 
         # Add, commit, and push changes using Git
-        subprocess.run(['git', 'add', 'playlist.m3u'])
+        subprocess.run(['git', 'add', 'playlist.m3u8'])
         subprocess.run(['git', 'commit', '-m', 'Updated playlist'])
-        subprocess.run(['git', 'push'])
+        subprocess.run(['git', 'push','https://github.com/renanbazinin/onlyKe12'])
 
     else:
         print("No matching network request found.")
