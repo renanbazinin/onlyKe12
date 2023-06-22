@@ -57,7 +57,7 @@ while True:
         # Add, commit, and push changes using Git
         subprocess.run(['git', 'add', 'playlist.m3u8'])
         subprocess.run(['git', 'commit', '-m', 'Updated playlist'])
-        subprocess.run(['git', 'push','https://github.com/renanbazinin/onlyKe12'])
+        subprocess.run(['git', 'push'])
 
     else:
         print("No matching network request found.")
