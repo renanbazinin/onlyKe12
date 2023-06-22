@@ -49,7 +49,7 @@ while True:
         print("no change")
     if filtered_request:
         # Create the text file and write the content
-        with open('playlist.m3u8', 'w') as file:
+        with open('ke12.m3u', 'w') as file:
             file.write('#EXTM3U\n')
             file.write('#EXTINF:-1 tvg-id="12-kanal-il"  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12\n')
             file.write(filtered_request)

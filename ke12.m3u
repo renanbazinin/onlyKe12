@@ -1,3 +1,3 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="12-kanal-il"  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/1200px-Keshet12_2018.svg.png" group-title="Israel",keshet12
-https://raw.githubusercontent.com/renanbazinin/onlyKe12/main/playlist.m3u8
+https://mako-streaming.akamaized.net/stream/hls/live/2033791/k12dvr/index.m3u8?b-in-range=100-2700&_uid=710632f7-4926-4ddb-a3d5-d10c9a1ec732&playerSessionid=b44a41a8-3fbb-420e-9f10-4a1e527ca305&hdnea=st%3D1687434525%7Eexp%3D1687435425%7Eacl%3D%2F*%7Ehmac%3Dfd01937c18ad5dc78f125244bdb7fbe2fa2dc58d64b1235383ab3b28adb040e6
